@@ -17,15 +17,26 @@ class team {
   function load(){
     $result = $this->db->query("SELECT player_id FROM team WHERE uid = $this->uid");
     while($row = $result->fetch_assoc()){
-      $this->player[] = new player($this->db, $row['player_id']);
+      $this->players[] = new player($this->db, $row['player_id']);
     }
   }
 
-  public function add_player($player_id) {
+  public function add($player_id) {
     $player = new player($this->db, $player_id);
     if(!$this->_position_filled($player->position)){
       $this->db->query("INSERT INTO team VALUES($this->uid, $player->player_id)");
+      return TRUE;
     }
+    return FALSE;
+  }
+
+  public function on_team($player_id) {
+    foreach($this->players as $player) {
+      if($player->player_id == $player_id) {
+        return TRUE;
+      }
+    }
+    return FALSE;
   }
 
   private function _position_filled($position){
