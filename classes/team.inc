@@ -10,6 +10,8 @@ class team {
   function __construct($db, $uid) {
     $this->db = $db;
     $this->uid = $uid;
+
+    $this->load();
   }
 
   function load(){
