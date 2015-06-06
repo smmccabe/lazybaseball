@@ -22,7 +22,15 @@ curl_close($curl);*/
 $fp = fopen("fangraphs.csv", "r");
 while(($data = fgetcsv($fp)) !== FALSE){
   print $data[0] . "<br />";
-  $db->query("INSERT INTO data VALUES('$data[0]', $data[20], $data[21])");
+  $db->query("INSERT INTO data (name, war, player_id) VALUES('$data[0]', $data[20], $data[21]) ON DUPLICATE KEY UPDATE war=$data[20];");
 }
+fclose($fp);
+
+$fp = fopen("fangraphs_pitchers.csv", "r");
+while(($data = fgetcsv($fp)) !== FALSE){
+  print $data[0] . ' - ' . $data[18] . "<br />";
+  $db->query("INSERT INTO data (name, war, player_id) VALUES('$data[0]', $data[18], $data[19]) ON DUPLICATE KEY UPDATE war=$data[18];");
+}
+fclose($fp);
 
 print "loop over";

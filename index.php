@@ -12,7 +12,7 @@ include "database.inc";
 <body>
 
 <?php
-$result = $db->query("SELECT * FROM data");
+$result = $db->query("SELECT * FROM data ORDER BY war desc");
 print '<table>';
 while($row = $result->fetch_assoc()){
   $player = new player($db, $row['player_id']);

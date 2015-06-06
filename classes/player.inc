@@ -24,19 +24,25 @@ class player {
   }
 
   public function position_list() {
-    $output =  '<select class="position" data-player_id="' . $this->player_id . '">';
-    $output .= $this->_position_option('SP', $this->position);
-    $output .= $this->_position_option('C', $this->position);
-    $output .= $this->_position_option('1B', $this->position);
-    $output .= $this->_position_option('2B', $this->position);
-    $output .= $this->_position_option('3B', $this->position);
-    $output .= $this->_position_option('SS', $this->position);
-    $output .= $this->_position_option('LF', $this->position);
-    $output .= $this->_position_option('CF', $this->position);
-    $output .= $this->_position_option('RF', $this->position);
-    $output .= $this->_position_option('DH', $this->position);
-    $output .= $this->_position_option('RP', $this->position);
-    $output .= '</select>';
+    if ($this->position) {
+      $output = $this->position;
+    }
+    else {
+      $output = '<select class="position" data-player_id="' . $this->player_id . '">';
+      $output .= '<option>-</option>';
+      $output .= $this->_position_option('SP', $this->position);
+      $output .= $this->_position_option('C', $this->position);
+      $output .= $this->_position_option('1B', $this->position);
+      $output .= $this->_position_option('2B', $this->position);
+      $output .= $this->_position_option('3B', $this->position);
+      $output .= $this->_position_option('SS', $this->position);
+      $output .= $this->_position_option('LF', $this->position);
+      $output .= $this->_position_option('CF', $this->position);
+      $output .= $this->_position_option('RF', $this->position);
+      $output .= $this->_position_option('DH', $this->position);
+      $output .= $this->_position_option('RP', $this->position);
+      $output .= '</select>';
+    }
 
     return $output;
   }
