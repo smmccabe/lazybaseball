@@ -39,6 +39,20 @@ class team {
     return FALSE;
   }
 
+  public function display(){
+    $output = "<table>";
+    $total = 0;
+
+    foreach($this->players as $player) {
+      $output .= '<tr><td>' . $player->name . '</td><td>' . $player->war . '</td></tr>';
+      $total += $player->war;
+    }
+    $output .= '<tr><td>TOTAL</td><td>' . $total . '</td></tr>';
+    $output .= '</table>';
+
+    return $output;
+  }
+
   private function _position_filled($position){
     $of = 0;
 

@@ -28,6 +28,11 @@ else {
 }
 
 print '</div>';
+print '<div id="team">';
+if(isset($team)) {
+  print $team->display();
+}
+print '</div>';
 
 $result = $db->query("SELECT * FROM data ORDER BY position asc, war desc");
 print '<table>';
