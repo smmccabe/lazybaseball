@@ -24,7 +24,7 @@ $db->query("TRUNCATE TABLE fangraphs");
 $fp = fopen("fangraphs.csv", "r");
 while(($data = fgetcsv($fp)) !== FALSE){
   print $data[0] . "<br />";
-  $db->query("INSERT INTO fangraphs VALUES('$data[0]', $data[20])");
+  $db->query("INSERT INTO fangraphs VALUES('$data[0]', $data[20], $data[21])");
 }
 
 print "loop over";
