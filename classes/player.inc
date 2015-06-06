@@ -2,7 +2,7 @@
 
 class player {
   private $db;
-  private $player_id;
+  public $player_id;
   public $name;
   public $war;
   public $position;
