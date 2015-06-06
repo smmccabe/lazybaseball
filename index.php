@@ -16,7 +16,9 @@ $result = $db->query("SELECT * FROM data ORDER BY war desc");
 print '<table>';
 while($row = $result->fetch_assoc()){
   $player = new player($db, $row['player_id']);
-  print '<tr><td>' . $row['name'] . '</td><td>' . $row['war'] . '</td>';
+  print '<tr>';
+  print '<td><a href="http://www.fangraphs.com/statss.aspx?playerid=' . $row['player_id'] . '">' . $row['name'] . '</a></td>';
+  print '<td>' . $row['war'] . '</td>';
   print '<td>' . $player->position_list() . '</td>';
   print '</tr>';
 }

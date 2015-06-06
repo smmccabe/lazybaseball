@@ -36,9 +36,7 @@ class player {
       $output .= $this->_position_option('2B', $this->position);
       $output .= $this->_position_option('3B', $this->position);
       $output .= $this->_position_option('SS', $this->position);
-      $output .= $this->_position_option('LF', $this->position);
-      $output .= $this->_position_option('CF', $this->position);
-      $output .= $this->_position_option('RF', $this->position);
+      $output .= $this->_position_option('OF', $this->position);
       $output .= $this->_position_option('DH', $this->position);
       $output .= $this->_position_option('RP', $this->position);
       $output .= '</select>';
