@@ -1,0 +1,33 @@
+
+#site-wrapper {
+  margin: 0 auto;
+}
+
+#team {
+  margin: 10px;
+}
+
+#team .total {
+  font-weight: bold;
+}
+
+#players-wrapper {
+  margin: 10px;
+}
+
+#players {
+
+}
+
+#players .search {
+  margin: 5px;
+}
+
+#players .sort {
+  margin: 5px;
+}
+
+td {
+  padding: 10px;
+  border: solid 1px grey;
+}

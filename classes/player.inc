@@ -28,7 +28,7 @@ class player {
       $output = $this->position;
     }
     else {
-      $output = '<select class="position" data-player_id="' . $this->player_id . '">';
+      $output = '<select class="position-selector" data-player_id="' . $this->player_id . '">';
       $output .= '<option>-</option>';
       $output .= $this->_position_option('SP', $this->position);
       $output .= $this->_position_option('C', $this->position);

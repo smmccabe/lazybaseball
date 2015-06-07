@@ -67,7 +67,7 @@ class user {
 
   function form() {
     $output = 'email: <input id="user-email" type="text" />';
-    $output .= '<a id="user-button" href="#go">GO</a>';
+    $output .= '<a id="user-button" href="">GO</a>';
 
     return $output;
   }

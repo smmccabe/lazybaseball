@@ -1,5 +1,8 @@
 $(function(){
-  $('.position').on('change', function(){
+  var player_list = new List('players', { valueNames: [ 'name', 'war', 'position' ] });
+
+  $('.position-selector').on('change', function(){
+    alert("argh");
     var position = $(this).val();
     var player_id = $(this).data('player_id');
     $.get("ajax.php", { action: 'position', player_id: player_id, position: position});
@@ -16,10 +19,12 @@ $(function(){
     var player_id = $(this).data('player_id');
 
     $.get("ajax.php", { action: 'add', player_id: player_id}).done(function( data ) {
-      $(this).parent().html(data);
       alert(data);
-      alert($(this).parent().parent().html());
     });
+  });
+
+  $('#players-title').click(function (){
+    $('#players').toggle();
   });
 
 });

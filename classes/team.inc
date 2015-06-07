@@ -47,7 +47,7 @@ class team {
       $output .= '<tr><td>' . $player->name . '</td><td>' . $player->war . '</td></tr>';
       $total += $player->war;
     }
-    $output .= '<tr><td>TOTAL</td><td>' . $total . '</td></tr>';
+    $output .= '<tr><td class="total">TOTAL</td><td class="total">' . $total . '</td></tr>';
     $output .= '</table>';
 
     return $output;
