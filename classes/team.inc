@@ -40,14 +40,16 @@ class team {
   }
 
   public function display(){
-    $output = "<table>";
+    $output = '<table class="table">';
     $total = 0;
 
+    $output .= '<th>Name</th><th>Position</th><th>WAR</th>';
+
     foreach($this->players as $player) {
-      $output .= '<tr><td>' . $player->name . '</td><td>' . $player->war . '</td></tr>';
+      $output .= '<tr><td>' . $player->name . '</td><td>' . $player->position . '</td><td>' . $player->war . '</td></tr>';
       $total += $player->war;
     }
-    $output .= '<tr><td class="total">TOTAL</td><td class="total">' . $total . '</td></tr>';
+    $output .= '<tr><td class="total">TOTAL</td><td></td><td class="total">' . $total . '</td></tr>';
     $output .= '</table>';
 
     return $output;

@@ -1,33 +1,18 @@
-
-#site-wrapper {
-  margin: 0 auto;
+.container {
+  max-width: 400px;
 }
 
-#team {
-  margin: 10px;
+#user-email {
+  margin-right: 10px;
 }
 
 #team .total {
   font-weight: bold;
 }
 
-#players-wrapper {
-  margin: 10px;
+#players-title {
+  cursor: pointer;
 }
 
-#players {
-
-}
-
-#players .search {
-  margin: 5px;
-}
-
-#players .sort {
-  margin: 5px;
-}
-
-td {
-  padding: 10px;
-  border: solid 1px grey;
+#players-title:hover {
 }

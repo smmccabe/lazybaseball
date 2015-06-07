@@ -66,8 +66,12 @@ class user {
   }
 
   function form() {
-    $output = 'email: <input id="user-email" type="text" />';
-    $output .= '<a id="user-button" href="">GO</a>';
+    $output = '<form class="form-inline" method="post">';
+    $output .= '<div class="form-group">';
+    $output .= '<label class="sr-only">Email</label><input name="email" id="user-email" class="form-control" type="email" placeholder="enter email" />';
+    $output .= '<button type="submit" id="user-button" class="btn btn-primary glyphicon glyphicon-log-in"></button>';
+    $output .= '</div>';
+    $output .= '</form>';
 
     return $output;
   }

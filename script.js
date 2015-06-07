@@ -5,13 +5,6 @@ $(function(){
     $.get("ajax.php", { action: 'position', player_id: player_id, position: position});
   });
 
-  $('#user-button').click(function(){
-    var email = $('#user-email').val();
-    $(this).attr( 'href', function(index, value) {
-      return value + '?email=' + email;
-    });
-  });
-
   $('.add').click(function(){
     var player_id = $(this).data('player_id');
 
@@ -29,7 +22,6 @@ $(function(){
     value = value.toLowerCase();
 
     $("table").find("tr").each(function(index) {
-      if (!index) return;
       var id = $(this).find("td").first().text();
       id = id.toLowerCase();
       $(this).toggle(id.indexOf(value) !== -1);
