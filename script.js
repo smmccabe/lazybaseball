@@ -1,8 +1,5 @@
 $(function(){
-  var player_list = new List('players', { valueNames: [ 'name', 'war', 'position' ] });
-
   $('.position-selector').on('change', function(){
-    alert("argh");
     var position = $(this).val();
     var player_id = $(this).data('player_id');
     $.get("ajax.php", { action: 'position', player_id: player_id, position: position});
@@ -25,6 +22,18 @@ $(function(){
 
   $('#players-title').click(function (){
     $('#players').toggle();
+  });
+
+  $("#search").keyup(function() {
+    var value = this.value;
+    value = value.toLowerCase();
+
+    $("table").find("tr").each(function(index) {
+      if (!index) return;
+      var id = $(this).find("td").first().text();
+      id = id.toLowerCase();
+      $(this).toggle(id.indexOf(value) !== -1);
+    });
   });
 
 });

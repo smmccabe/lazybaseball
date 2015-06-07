@@ -7,7 +7,6 @@ include "database.inc";
 <html xmlns="http://www.w3.org/1999/html">
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
   <script src="script.js"></script>
 
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -42,7 +41,7 @@ print '</div>';
   <div id="players-wrapper">
 <h2 id="players-title">Players List</h2>
 <div id="players">
-<input class="search" placeholder="Search" />
+<input id="search" placeholder="Search" />
 <button class="sort" data-sort="position">Sort by Position</button><br />
 <table id="player-list">
 <tbody class="list">
