@@ -10,10 +10,6 @@ if(isset($_GET['action'])){
       $position = $_GET['position'];
       $db->query("UPDATE data SET position='$position' WHERE player_id=$player_id");
       break;
-    case 'user':
-        $user = new user($db);
-        $user->create_or_load($_GET['email']);
-      break;
     case 'add':
       if($_SESSION['uid']){
         $user = new user($db);
@@ -27,5 +23,9 @@ if(isset($_GET['action'])){
           print "position already filled";
         }
       }
+    break;
+    case 'display_team':
+      $team = new team($db, $_SESSION['uid']);
+      print $team->display();
   }
 }

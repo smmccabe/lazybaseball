@@ -1,8 +1,12 @@
 .container {
-  max-width: 400px;
+  max-width: 600px;
 }
 
 #user-email {
+  margin-right: 10px;
+}
+
+#user-password {
   margin-right: 10px;
 }
 
@@ -12,6 +16,10 @@
 
 #players-title {
   cursor: pointer;
+}
+
+#players {
+  display: none;
 }
 
 #players-title:hover {

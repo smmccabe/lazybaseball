@@ -19,13 +19,17 @@ include "database.inc";
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
 
-  <title>Lazy Baseball</title>
+  <title>LazyBaseball</title>
 </head>
 <body>
 
 <div id="site-wrapper" class="container">
 
-  <h1>Lazy Baseball</h1>
+  <div class="page-header">
+    <h1>LazyBaseball</h1>
+    <small><p>Very simple fantasy baseball for people who hate managing teams throughout the year. Pick your players and then whoever had the highest fWAR at the end of the season wins. No trades, no setting active players, nothing, just sit back and enjoy baseball.</p>
+    <p>Pick your 8 position players and a starting pitcher. Maybe we'll mix it up later :)</p></small>
+  </div>
 
   <div id="user-wrapper" class="panel panel-default">
   <div class="panel-heading">Profile</div>
@@ -33,8 +37,8 @@ include "database.inc";
 <?php
 
 $user = new user($db);
-if(isset($_POST['email'])) {
-  $user->create_or_load($_POST['email']);
+if(isset($_POST['email']) && isset($_POST['password'])) {
+  $user->create_or_load($_POST['email'], $_POST['password']);
 }
 
 if($user->load()){
@@ -47,18 +51,20 @@ else {
 
 print '</div>';
 print '</div>';
-print '<div id="team" class="panel panel-default">';
-print '<div class="panel-heading">Team</div>';
-print '<div class="panel-body">';
 if(isset($team)) {
-  print $team->display();
+  print '<div id="team" class="panel panel-default">';
+  print '<div class="panel-heading">Team - Rank #' . $team->rank . '</div>';
+  print '<div class="panel-body">';
+  if (isset($team)) {
+    print $team->display();
+  }
+  print '</div>';
+  print '</div>';
 }
-print '</div>';
-print '</div>';
 ?>
 
 <div id="players-wrapper" class="panel panel-default">
-<div id="players-title" class="panel-heading">Players List</div>
+<div id="players-title" class="panel-heading">Add Players</div>
 <div id="players" class="panel-body">
 <input id="search" class="form-control" placeholder="Search" /><br />
 <table id="player-list" class="table table-striped">

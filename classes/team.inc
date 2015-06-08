@@ -6,6 +6,7 @@ class team {
   private $db;
   private $uid;
   public $players = array();
+  public $rank;
 
   function __construct($db, $uid) {
     $this->db = $db;
@@ -15,16 +16,21 @@ class team {
   }
 
   function load(){
-    $result = $this->db->query("SELECT player_id FROM team WHERE uid = $this->uid");
+    $result = $this->db->query("SELECT player_id FROM team_players WHERE uid = $this->uid");
     while($row = $result->fetch_assoc()){
       $this->players[] = new player($this->db, $row['player_id']);
+    }
+
+    $result = $this->db->query("SELECT rank FROM team WHERE uid = $this->uid");
+    if($row = $result->fetch_assoc()) {
+      $this->rank = $row['rank'];
     }
   }
 
   public function add($player_id) {
     $player = new player($this->db, $player_id);
     if(!$this->_position_filled($player->position)){
-      $this->db->query("INSERT INTO team VALUES($this->uid, $player->player_id)");
+      $this->db->query("INSERT INTO team_players VALUES($this->uid, $player->player_id)");
       return TRUE;
     }
     return FALSE;
