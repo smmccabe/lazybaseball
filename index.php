@@ -68,7 +68,7 @@ if(isset($team)) {
 <div id="players" class="panel-body">
 <input id="search" class="form-control" placeholder="Search" /><br />
 <table id="player-list" class="table table-striped">
-<tr><th>Name</th><th>Position</th><th>War</th></tr>
+<tr><th>Name</th><th>Position</th><th>War</th><th></th></tr>
 
 <?php
 $result = $db->query("SELECT * FROM data ORDER BY position asc, war desc");
@@ -78,14 +78,16 @@ while($row = $result->fetch_assoc()){
   print '<td class="name"><a href="http://www.fangraphs.com/statss.aspx?playerid=' . $row['player_id'] . '">' . $row['name'] . '</a></td>';
   print '<td class="position">' . $player->position_list() . '</td>';
   print '<td class="war">' . $row['war'] . '</td>';
+  print '<td>';
   if(isset($_SESSION['uid'])){
     if(!$team->on_team($player->player_id)) {
-      print '<td><a class="add" data-player_id="' . $player->player_id . '" href="#add">add</a></td>';
+      print '<a class="add" data-player_id="' . $player->player_id . '" href="#add">add</a>';
     }
     else{
-      print '<td>on team</td>';
+      print 'on team';
     }
   }
+  print '</td>';
   print '</tr>';
 }
 ?>

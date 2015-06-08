@@ -26,9 +26,12 @@ $(function(){
     value = value.toLowerCase();
 
     $("#player-list").find("tr").each(function(index) {
-      var id = $(this).find("td").first().text();
-      id = id.toLowerCase();
-      $(this).toggle(id.indexOf(value) !== -1);
+      var tr = $(this).find("td").first();
+      if(tr.length) {
+        var id = tr.text();
+        id = id.toLowerCase();
+        $(this).toggle(id.indexOf(value) !== -1);
+      }
     });
   });
 
